@@ -40,7 +40,7 @@ class StudentController extends Controller
      */
     public function store(StoreStudentRequest $request)
     {
-        //
+        return new StudentResource(Student::create($request->all()));
     }
 
     /**
@@ -74,7 +74,7 @@ class StudentController extends Controller
      */
     public function update(UpdateStudentRequest $request, Student $student)
     {
-        //
+        $student->update($request->all());
     }
 
     /**
