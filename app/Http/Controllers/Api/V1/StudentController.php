@@ -16,7 +16,7 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        return Student::paginate();
     }
 
     /**
@@ -48,7 +48,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        //
+        return $student;
     }
 
     /**
@@ -86,11 +86,13 @@ class StudentController extends Controller
     }
 
     public function searchByName($name){
+
+        return Student::where('name', 'like', '%'.$name.'%')->get();
         
 
     }
 
-    public function searchByEmail(){
-
+    public function searchByEmail($email){
+        return Student::where('email', 'like', '%'.$email.'%')->get();
     }
 }
