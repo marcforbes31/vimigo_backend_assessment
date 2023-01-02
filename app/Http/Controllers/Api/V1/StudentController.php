@@ -8,9 +8,11 @@ use App\Http\Requests\UpdateStudentRequest;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\StudentCollection;
 use App\Http\Resources\V1\StudentResource;
+use App\Traits\HttpResponses;
 
 class StudentController extends Controller
 {
+    use HttpResponses;
     /**
      * Display a listing of the resource.
      *
@@ -85,7 +87,18 @@ class StudentController extends Controller
      */
     public function destroy(Student $student)
     {
-        //
+        $studentid = $student->id;
+        $studentname = $student->name;
+        $studentaddr = $student->address;
+        $studentcourse = $student->course;
+        $student->delete();
+        return $this->success([
+            'message'=>'Successfully deleted',
+            'id'=>$studentid,
+            'name'=>$studentname,
+            'address'=>$studentaddr
+        ]);
+
     }
 
     public function searchByName($name){
