@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\V1\StudentController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -27,3 +28,8 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::group(['middleware'=>'auth:sanctum'], function(){
     Route::post('/logout', [AuthController::class, 'logout']);
 });
+
+//Api\V1 Routes
+Route::group(['prefix'=>'v1', 'namespace'=>'App\Http\Controllers\Api\V1', function(){
+    Route::apiResource('/students', StudentController::class);
+}]);
