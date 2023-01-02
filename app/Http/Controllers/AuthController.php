@@ -11,14 +11,14 @@ class AuthController extends Controller
     use TraitsHttpResponses;
 
     public function login(){
-
+        return "This is the login method";
     }
 
     public function register(){
-
+        return "This is the register method";
     }
 
     public function logout(){
-        
+       
     }
 }
