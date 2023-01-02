@@ -14,7 +14,8 @@ class StoreStudentRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        $staff = $this->user();
+        return $staff!=null;
     }
 
     /**
