@@ -90,12 +90,14 @@ class StudentController extends Controller
 
     public function searchByName($name){
 
-        return Student::where('name', 'like', '%'.$name.'%')->get();
+        return new StudentCollection(Student::where('name', 'like', '%'.$name.'%')->paginate());
+        //return Student::where('name', 'like', '%'.$name.'%')->get();
         
 
     }
 
     public function searchByEmail($email){
-        return Student::where('email', 'like', '%'.$email.'%')->get();
+        //return Student::where('email', 'like', '%'.$email.'%')->get();
+        return new StudentCollection(Student::where('email', 'like', '%'.$email.'%')->paginate());
     }
 }

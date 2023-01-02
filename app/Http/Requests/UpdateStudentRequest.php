@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateStudentRequest extends FormRequest
 {
@@ -23,8 +24,38 @@ class UpdateStudentRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            //
+        $methodCheck = $this->method();
+        $course = [
+            'Software Engineering', 
+            'Law', 
+            'Network Engineering', 
+            'Hotel Management', 
+            'Chemical Engineering',
+            'Architechture',
+            'Environmental Science',
+            'Sport Science'
+
         ];
+
+        if($methodCheck == 'PUT'){
+            return [
+                'name'=>['required'],
+                'email'=>['required', 'email', 'unique:students'],
+                'address'=>['required'],
+                'course'=>['required', Rule::in($course)]
+            ];
+
+
+        } else if ($methodCheck == 'PATCH'){
+
+            return [
+                'name'=>['sometimes','required'],
+                'email'=>['sometimes','required', 'email'],
+                'address'=>['sometimes','required'],
+                'course'=>['sometimes','required', Rule::in($course)]
+            ];
+
+        }
+        
     }
 }
