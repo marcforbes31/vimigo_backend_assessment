@@ -77,6 +77,7 @@ class StudentController extends Controller
     public function update(UpdateStudentRequest $request, Student $student)
     {
         $student->update($request->all());
+        return $this->success('', 'Updated Successfully');
     }
 
     /**
