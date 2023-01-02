@@ -6,6 +6,8 @@ use App\Models\Student;
 use App\Http\Requests\StoreStudentRequest;
 use App\Http\Requests\UpdateStudentRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\StudentCollection;
+use App\Http\Resources\V1\StudentResource;
 
 class StudentController extends Controller
 {
@@ -16,7 +18,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return Student::paginate();
+        //return Student::paginate();
+        return new StudentCollection(Student::paginate());
     }
 
     /**
@@ -48,7 +51,7 @@ class StudentController extends Controller
      */
     public function show(Student $student)
     {
-        return $student;
+        return new StudentResource($student);
     }
 
     /**
