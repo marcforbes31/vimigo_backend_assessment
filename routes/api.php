@@ -32,4 +32,6 @@ Route::group(['middleware'=>'auth:sanctum'], function(){
 //Api\V1 Routes
 Route::group(['prefix'=>'v1', 'namespace'=>'App\Http\Controllers\Api\V1', function(){
     Route::apiResource('/students', StudentController::class);
+    Route::get('/students/search-name/{name}', [StudentController::class, 'searchByName']);
+    Route::get('/students/search-email/{email}', [StudentController::class, 'searchByEmail']);
 }]);

@@ -84,4 +84,13 @@ class StudentController extends Controller
     {
         //
     }
+
+    public function searchByName($name){
+        
+
+    }
+
+    public function searchByEmail(){
+
+    }
 }
