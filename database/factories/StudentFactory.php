@@ -16,8 +16,25 @@ class StudentFactory extends Factory
      */
     public function definition()
     {
+        $course = [
+            'Software Engineering', 
+            'Law', 
+            'Network Engineering', 
+            'Hotel Management', 
+            'Chemical Engineering',
+            'Architechture',
+            'Environmental Science',
+            'Sport Science'
+
+        ];
+
+        $coursepicker = $this->faker->randomElement($course);
+
         return [
-            //
+            'name' => $this->faker->name(),
+            'email' => $this->faker->email(),
+            'address' => $this->faker->streetAddress(),
+            'course' => $coursepicker
         ];
     }
 }
