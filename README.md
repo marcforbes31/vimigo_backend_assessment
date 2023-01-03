@@ -23,6 +23,7 @@
 <br>
 <hr>
 <h4>Additional Information</h4>
+<h5>SQL File : https://drive.google.com/file/d/124B1OvGAqq_U-U85hTjCsF_MVanyC2Qq/view?usp=share_link</h5>
 <h5>Git Track Progress (Commit Logs)</h5>
 <ul>
     <li>![1 of 3](https://user-images.githubusercontent.com/121802157/210286920-4816a702-1a38-4a5e-b1b2-f6ef77560322.png)</li>
